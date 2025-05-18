@@ -46,3 +46,5 @@ Non-Tailwind classes (custom CSS, component handles, pk-* animations, admin chro
 Enumerators (AllColors, AllStates, AllRadii, AllZLayers, ...) exist for exhaustive testing and coverage tooling.
 
 See godoc for the complete method and constant set. The package has comprehensive tests and executable Examples.
+
+The package is used as the single source of Tailwind class construction for component libraries and is intended to be generally useful anywhere a typed, zero-static-string Tailwind DSL is desired in Go.
