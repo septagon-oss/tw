@@ -1,3 +1,5 @@
+//go:build platformkit
+
 
 package emission
 

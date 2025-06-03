@@ -1,3 +1,5 @@
+//go:build platformkit
+
 
 // Package emission translates typed design-system tokens into styleengine
 // rules. Each Emit* function returns a *styleengine.Sheet that can be merged
