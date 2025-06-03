@@ -1,4 +1,3 @@
-//go:build platformkit
 
 
 // Package emission translates typed design-system tokens into styleengine
