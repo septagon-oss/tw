@@ -41,7 +41,7 @@ Composition:
 - `Merge(other)` appends another builder's segments.
 - `Raw(s)` passes a pre-validated utility string through (use for runtime values or migration only).
 
-Non-Tailwind classes (custom CSS, component handles, pk-* animations, admin chrome) are routed through the PlatformKitClass type and the `PK(c)` method so they bypass any Tailwind-only linters.
+Non-Tailwind classes (custom CSS, component handles, your animation keyframes, custom component handles, or other app-specific markers) are routed through the PlatformKitClass type and the `PK(c)` method so they bypass any Tailwind-only linters.
 
 Enumerators (AllColors, AllStates, AllRadii, AllZLayers, ...) exist for exhaustive testing and coverage tooling.
 
