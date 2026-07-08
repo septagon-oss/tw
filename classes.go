@@ -173,21 +173,27 @@ func (cl ClassList) Border(b BorderWidth) ClassList { return cl.append(classBord
 
 // BorderTop / BorderBottom / BorderLeft / BorderRight apply a one-side
 // border width. Pass Border1 for the default thickness.
-func (cl ClassList) BorderTop(b BorderWidth) ClassList    { return cl.append(classBorderSide("t", b)) }
+func (cl ClassList) BorderTop(b BorderWidth) ClassList { return cl.append(classBorderSide("t", b)) }
+
 func (cl ClassList) BorderBottom(b BorderWidth) ClassList { return cl.append(classBorderSide("b", b)) }
-func (cl ClassList) BorderLeft(b BorderWidth) ClassList   { return cl.append(classBorderSide("l", b)) }
-func (cl ClassList) BorderRight(b BorderWidth) ClassList  { return cl.append(classBorderSide("r", b)) }
+
+func (cl ClassList) BorderLeft(b BorderWidth) ClassList { return cl.append(classBorderSide("l", b)) }
+
+func (cl ClassList) BorderRight(b BorderWidth) ClassList { return cl.append(classBorderSide("r", b)) }
 
 // BorderTopColor / BorderBottomColor / BorderLeftColor / BorderRightColor
 // apply a per-side border color, e.g. BorderTopColor(ColorWhite) →
 // "border-t-white". Use alongside BorderTop etc. for the width.
 func (cl ClassList) BorderTopColor(c Color) ClassList { return cl.append(classBorderSideColor("t", c)) }
+
 func (cl ClassList) BorderBottomColor(c Color) ClassList {
 	return cl.append(classBorderSideColor("b", c))
 }
+
 func (cl ClassList) BorderLeftColor(c Color) ClassList {
 	return cl.append(classBorderSideColor("l", c))
 }
+
 func (cl ClassList) BorderRightColor(c Color) ClassList {
 	return cl.append(classBorderSideColor("r", c))
 }
@@ -423,12 +429,15 @@ func (cl ClassList) MaxWScaled(name MaxWidth) ClassList { return cl.append(class
 func (cl ClassList) TranslateXRaw(raw string) ClassList {
 	return cl.append(classTranslateXRaw(raw))
 }
+
 func (cl ClassList) TranslateYRaw(raw string) ClassList {
 	return cl.append(classTranslateYRaw(raw))
 }
+
 func (cl ClassList) NegTranslateX(raw string) ClassList {
 	return cl.append(classNegTranslateX(raw))
 }
+
 func (cl ClassList) NegTranslateY(raw string) ClassList {
 	return cl.append(classNegTranslateY(raw))
 }

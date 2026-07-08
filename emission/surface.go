@@ -1,5 +1,3 @@
-
-
 package emission
 
 // Implements: REQ-004. // Per: ADR-0004. // Discipline: C-14.

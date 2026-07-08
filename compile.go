@@ -120,60 +120,70 @@ func classMarginX(s Spacing) string {
 	}
 	return "mx-" + string(s)
 }
+
 func classMarginY(s Spacing) string {
 	if s == "" {
 		return ""
 	}
 	return "my-" + string(s)
 }
+
 func classMargin(s Spacing) string {
 	if s == "" {
 		return ""
 	}
 	return "m-" + string(s)
 }
+
 func classMarginLeft(s Spacing) string {
 	if s == "" {
 		return ""
 	}
 	return "ml-" + string(s)
 }
+
 func classMarginRight(s Spacing) string {
 	if s == "" {
 		return ""
 	}
 	return "mr-" + string(s)
 }
+
 func classMarginTop(s Spacing) string {
 	if s == "" {
 		return ""
 	}
 	return "mt-" + string(s)
 }
+
 func classMarginBottom(s Spacing) string {
 	if s == "" {
 		return ""
 	}
 	return "mb-" + string(s)
 }
+
 func classPaddingLeft(s Spacing) string {
 	if s == "" {
 		return ""
 	}
 	return "pl-" + string(s)
 }
+
 func classPaddingRight(s Spacing) string {
 	if s == "" {
 		return ""
 	}
 	return "pr-" + string(s)
 }
+
 func classPaddingTop(s Spacing) string {
 	if s == "" {
 		return ""
 	}
 	return "pt-" + string(s)
 }
+
 func classPaddingBottom(s Spacing) string {
 	if s == "" {
 		return ""
@@ -189,36 +199,42 @@ func classTop(s Spacing) string {
 	}
 	return "top-" + string(s)
 }
+
 func classBottom(s Spacing) string {
 	if s == "" {
 		return ""
 	}
 	return "bottom-" + string(s)
 }
+
 func classLeft(s Spacing) string {
 	if s == "" {
 		return ""
 	}
 	return "left-" + string(s)
 }
+
 func classRight(s Spacing) string {
 	if s == "" {
 		return ""
 	}
 	return "right-" + string(s)
 }
+
 func classInset(s Spacing) string {
 	if s == "" {
 		return ""
 	}
 	return "inset-" + string(s)
 }
+
 func classInsetX(s Spacing) string {
 	if s == "" {
 		return ""
 	}
 	return "inset-x-" + string(s)
 }
+
 func classInsetY(s Spacing) string {
 	if s == "" {
 		return ""
@@ -241,6 +257,7 @@ func classGapX(s Spacing) string {
 	}
 	return "gap-x-" + string(s)
 }
+
 func classGapY(s Spacing) string {
 	if s == "" {
 		return ""
@@ -631,6 +648,7 @@ func classTranslateXSpacing(s Spacing) string {
 	}
 	return "translate-x-" + string(s)
 }
+
 func classTranslateYSpacing(s Spacing) string {
 	if s == "" {
 		return ""
@@ -646,6 +664,7 @@ func classSpaceX(s Spacing) string {
 	}
 	return "space-x-" + string(s)
 }
+
 func classSpaceY(s Spacing) string {
 	if s == "" {
 		return ""
@@ -722,6 +741,7 @@ func classOverflowX(o Overflow) string {
 	}
 	return "overflow-x-" + string(o)
 }
+
 func classOverflowY(o Overflow) string {
 	if o == "" {
 		return ""
@@ -745,6 +765,7 @@ func classDivideX(s Spacing) string {
 	}
 	return "divide-x-" + string(s)
 }
+
 func classDivideY(s Spacing) string {
 	if s == "" {
 		return "divide-y"
@@ -804,18 +825,21 @@ func classTranslateXRaw(raw string) string {
 	}
 	return "translate-x-" + raw
 }
+
 func classTranslateYRaw(raw string) string {
 	if raw == "" {
 		return ""
 	}
 	return "translate-y-" + raw
 }
+
 func classNegTranslateX(raw string) string {
 	if raw == "" {
 		return ""
 	}
 	return "-translate-x-" + raw
 }
+
 func classNegTranslateY(raw string) string {
 	if raw == "" {
 		return ""
@@ -861,18 +885,21 @@ func classNegTop(s Spacing) string {
 	}
 	return "-top-" + string(s)
 }
+
 func classNegRight(s Spacing) string {
 	if s == "" {
 		return ""
 	}
 	return "-right-" + string(s)
 }
+
 func classNegBottom(s Spacing) string {
 	if s == "" {
 		return ""
 	}
 	return "-bottom-" + string(s)
 }
+
 func classNegLeft(s Spacing) string {
 	if s == "" {
 		return ""
@@ -889,18 +916,21 @@ func classLeftRaw(v string) string {
 	}
 	return "left-" + v
 }
+
 func classRightRaw(v string) string {
 	if v == "" {
 		return ""
 	}
 	return "right-" + v
 }
+
 func classTopRaw(v string) string {
 	if v == "" {
 		return ""
 	}
 	return "top-" + v
 }
+
 func classBottomRaw(v string) string {
 	if v == "" {
 		return ""
