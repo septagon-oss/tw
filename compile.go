@@ -19,6 +19,15 @@ const (
 	classPrefixTranslateX = "translate-x-"
 )
 
+// prefixOrEmpty returns prefix+v when v is non-empty, or "" when v is empty.
+// Shared by multiple class* helper functions to eliminate duplicated empty-check + prefix patterns.
+func prefixOrEmpty(v, prefix string) string {
+	if v == "" {
+		return ""
+	}
+	return prefix + v
+}
+
 // classBg maps a Color const to its "bg-*" Tailwind class.
 //
 // Every non-zero Color yields a "bg-<semantic-name>" class. A previous
@@ -680,31 +689,11 @@ func classSpaceY(s Spacing) string {
 	return "space-y-" + string(s)
 }
 
-// classMaxW emits "max-w-<name>" using Tailwind's named max-width
-// scale (xs/sm/md/lg/xl/2xl/3xl/4xl/5xl/6xl/7xl, full, screen-sm, etc.).
-func classMaxW(v string) string {
-	if v == "" {
-		return ""
-	}
-	return "max-w-" + v
-}
+func classMaxW(v string) string { return prefixOrEmpty(v, "max-w-") }
 
-// classMinH emits "min-h-<v>". Accepts Spacing consts plus special
-// values like "screen" or "full".
-func classMinH(v string) string {
-	if v == "" {
-		return ""
-	}
-	return classPrefixMinH + v
-}
+func classMinH(v string) string { return prefixOrEmpty(v, classPrefixMinH) }
 
-// classMaxH emits "max-h-<v>".
-func classMaxH(v string) string {
-	if v == "" {
-		return ""
-	}
-	return "max-h-" + v
-}
+func classMaxH(v string) string { return prefixOrEmpty(v, "max-h-") }
 
 // classNegMargin emits "-m{side}-{step}" — negative margin on one side.
 // Side is one of: "t"/"b"/"l"/"r"/"x"/"y"/"" (all).
@@ -946,38 +935,13 @@ func classBottomRaw(v string) string {
 	return "bottom-" + v
 }
 
-// classMinWidthRaw emits "min-w-<v>" where <v> is an arbitrary value
-// like "[3ch]" or "0".
-func classMinWidthRaw(v string) string {
-	if v == "" {
-		return ""
-	}
-	return "min-w-" + v
-}
+func classMinWidthRaw(v string) string { return prefixOrEmpty(v, "min-w-") }
 
-// classMaxWidthRaw emits "max-w-<v>" for an arbitrary-value max-width.
-func classMaxWidthRaw(v string) string {
-	if v == "" {
-		return ""
-	}
-	return "max-w-" + v
-}
+func classMaxWidthRaw(v string) string { return prefixOrEmpty(v, "max-w-") }
 
-// classMinHeightRaw emits "min-h-<v>" for an arbitrary-value min-height.
-func classMinHeightRaw(v string) string {
-	if v == "" {
-		return ""
-	}
-	return classPrefixMinH + v
-}
+func classMinHeightRaw(v string) string { return prefixOrEmpty(v, classPrefixMinH) }
 
-// classMaxHeightRaw emits "max-h-<v>" for an arbitrary-value max-height.
-func classMaxHeightRaw(v string) string {
-	if v == "" {
-		return ""
-	}
-	return "max-h-" + v
-}
+func classMaxHeightRaw(v string) string { return prefixOrEmpty(v, "max-h-") }
 
 // classWidthRaw emits "w-<v>" for an arbitrary-value width.
 func classWidthRaw(v string) string {
