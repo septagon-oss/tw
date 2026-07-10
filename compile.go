@@ -11,6 +11,14 @@ package tw
 // below. This design makes it trivial to audit or mechanically
 // enforce "no raw utility strings" policies in a larger codebase.
 
+const (
+	classPrefixMinH       = "min-h-"
+	classPrefixRounded    = "rounded-"
+	classPrefixBorder     = "border-"
+	classPrefixTranslateY = "translate-y-"
+	classPrefixTranslateX = "translate-x-"
+)
+
 // classBg maps a Color const to its "bg-*" Tailwind class.
 //
 // Every non-zero Color yields a "bg-<semantic-name>" class. A previous
@@ -303,7 +311,7 @@ func classMinHeight(s Spacing) string {
 	if s == "" {
 		return ""
 	}
-	return "min-h-" + string(s)
+	return classPrefixMinH + string(s)
 }
 
 // classRounded maps Radius → "rounded-*".
@@ -314,7 +322,7 @@ func classRounded(r Radius) string {
 	if r == RadiusBase {
 		return "rounded"
 	}
-	return "rounded-" + string(r)
+	return classPrefixRounded + string(r)
 }
 
 // classRoundedSide emits a per-side border-radius utility,
@@ -327,9 +335,9 @@ func classRoundedSide(side string, r Radius) string {
 		return ""
 	}
 	if r == RadiusBase {
-		return "rounded-" + side
+		return classPrefixRounded + side
 	}
-	return "rounded-" + side + "-" + string(r)
+	return classPrefixRounded + side + "-" + string(r)
 }
 
 // classShadow maps Shadow → "shadow-*".
@@ -463,7 +471,7 @@ func classBorderWidth(b BorderWidth) string {
 	if b == Border1 {
 		return "border"
 	}
-	return "border-" + string(b)
+	return classPrefixBorder + string(b)
 }
 
 // classBorderSide emits a side-specific border width utility,
@@ -473,9 +481,9 @@ func classBorderSide(side string, b BorderWidth) string {
 		return classBorderWidth(b)
 	}
 	if b == Border1 {
-		return "border-" + side
+		return classPrefixBorder + side
 	}
-	return "border-" + side + "-" + string(b)
+	return classPrefixBorder + side + "-" + string(b)
 }
 
 // classBorderSideColor emits a per-side border-color utility,
@@ -484,7 +492,7 @@ func classBorderSideColor(side string, c Color) string {
 	if side == "" || c == "" {
 		return ""
 	}
-	return "border-" + side + "-" + string(c)
+	return classPrefixBorder + side + "-" + string(c)
 }
 
 // classRingWidth maps RingWidth → "ring-*". Every width emits
@@ -542,7 +550,7 @@ func classBorderStyle(b BorderStyle) string {
 	if b == "" {
 		return ""
 	}
-	return "border-" + string(b)
+	return classPrefixBorder + string(b)
 }
 
 // classResize maps ResizeMode → "resize" / "resize-*".
@@ -587,7 +595,7 @@ func classTranslateY(t Translate) string {
 	case TranslateNeg2:
 		return "-translate-y-2"
 	default:
-		return "translate-y-" + string(t)
+		return classPrefixTranslateY + string(t)
 	}
 }
 
@@ -604,7 +612,7 @@ func classTranslateX(t Translate) string {
 	case TranslateNeg2:
 		return "-translate-x-2"
 	default:
-		return "translate-x-" + string(t)
+		return classPrefixTranslateX + string(t)
 	}
 }
 
@@ -646,14 +654,14 @@ func classTranslateXSpacing(s Spacing) string {
 	if s == "" {
 		return ""
 	}
-	return "translate-x-" + string(s)
+	return classPrefixTranslateX + string(s)
 }
 
 func classTranslateYSpacing(s Spacing) string {
 	if s == "" {
 		return ""
 	}
-	return "translate-y-" + string(s)
+	return classPrefixTranslateY + string(s)
 }
 
 // classSpaceX / classSpaceY emit "space-x-<Spacing>" / "space-y-<Spacing>"
@@ -687,7 +695,7 @@ func classMinH(v string) string {
 	if v == "" {
 		return ""
 	}
-	return "min-h-" + v
+	return classPrefixMinH + v
 }
 
 // classMaxH emits "max-h-<v>".
@@ -805,7 +813,7 @@ func classBorderWithOpacity(c Color, opacity string) string {
 	if c == "" || opacity == "" {
 		return ""
 	}
-	return "border-" + string(c) + "/" + opacity
+	return classPrefixBorder + string(c) + "/" + opacity
 }
 
 // classAspectRaw emits "aspect-[<raw>]" for arbitrary-value aspect
@@ -823,14 +831,14 @@ func classTranslateXRaw(raw string) string {
 	if raw == "" {
 		return ""
 	}
-	return "translate-x-" + raw
+	return classPrefixTranslateX + raw
 }
 
 func classTranslateYRaw(raw string) string {
 	if raw == "" {
 		return ""
 	}
-	return "translate-y-" + raw
+	return classPrefixTranslateY + raw
 }
 
 func classNegTranslateX(raw string) string {
@@ -960,7 +968,7 @@ func classMinHeightRaw(v string) string {
 	if v == "" {
 		return ""
 	}
-	return "min-h-" + v
+	return classPrefixMinH + v
 }
 
 // classMaxHeightRaw emits "max-h-<v>" for an arbitrary-value max-height.
@@ -1000,7 +1008,7 @@ func classRoundedRaw(v string) string {
 	if v == "" {
 		return ""
 	}
-	return "rounded-" + v
+	return classPrefixRounded + v
 }
 
 // classColSpan emits "col-span-N" for a grid column span.

@@ -690,16 +690,7 @@ func (cl ClassList) Compile() string {
 	for _, s := range cl.segments {
 		switch s.kind {
 		case sgClass:
-			if s.class == "" {
-				continue
-			}
-			if sb.Len() > 0 {
-				sb.WriteByte(' ')
-			}
-			for _, prefix := range prefixStack {
-				sb.WriteString(prefix)
-			}
-			sb.WriteString(s.class)
+			sb = cl.writeClassSegment(sb, s, prefixStack)
 		case sgOpenPrefix:
 			prefixStack = append(prefixStack, s.prefix)
 		case sgClosePrefix:
@@ -710,4 +701,21 @@ func (cl ClassList) Compile() string {
 		}
 	}
 	return sb.String()
+}
+
+// writeClassSegment appends one class segment to the buffer, applying
+// active prefix frames. Separated from Compile to reduce cognitive
+// complexity.
+func (ClassList) writeClassSegment(sb strings.Builder, s segment, prefixStack []string) strings.Builder {
+	if s.class == "" {
+		return sb
+	}
+	if sb.Len() > 0 {
+		sb.WriteByte(' ')
+	}
+	for _, prefix := range prefixStack {
+		sb.WriteString(prefix)
+	}
+	sb.WriteString(s.class)
+	return sb
 }
