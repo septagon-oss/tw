@@ -216,7 +216,7 @@ func TestCompileIsDeterministic(t *testing.T) {
 			Compile()
 	}
 	first := build()
-	for i := 0; i < 50; i++ {
+	for i := range 50 {
 		if got := build(); got != first {
 			t.Fatalf("iteration %d: got %q, want %q", i, got, first)
 		}
