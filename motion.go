@@ -1,6 +1,8 @@
 package tw
 
-// Implements: REQ-004. // Per: ADR-0004. // Discipline: C-14.
+// Implements: REQ-004.
+// Per: ADR-0004.
+// Discipline: C-14.
 
 // Transition is a typed CSS transition property group.
 type Transition string

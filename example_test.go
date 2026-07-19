@@ -1,6 +1,8 @@
 package tw_test
 
-// Implements: REQ-004. // Per: ADR-0004. // Discipline: C-14.
+// Validates: REQ-004.
+// Per: ADR-0004.
+// Discipline: C-14.
 
 import (
 	"fmt"

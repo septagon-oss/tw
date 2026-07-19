@@ -1,6 +1,8 @@
 package tw
 
-// Implements: REQ-004. // Per: ADR-0004. // Discipline: C-14.
+// Implements: REQ-004.
+// Per: ADR-0004.
+// Discipline: C-14.
 
 // Spacing is a typed spacing step matching tokens.SpacingScale entries.
 // Values serialize to the Tailwind spacing key (e.g., "3.5", "4",

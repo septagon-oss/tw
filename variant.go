@@ -1,6 +1,8 @@
 package tw
 
-// Implements: REQ-004. // Per: ADR-0004. // Discipline: C-14.
+// Implements: REQ-004.
+// Per: ADR-0004.
+// Discipline: C-14.
 
 // Variant is a typed component visual variant. Component builders
 // accept this type — not raw strings — as the variant input.

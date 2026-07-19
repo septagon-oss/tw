@@ -1,6 +1,8 @@
 package tw
 
-// Implements: REQ-004. // Per: ADR-0004. // Discipline: C-14.
+// Implements: REQ-004.
+// Per: ADR-0004.
+// Discipline: C-14.
 
 // Shape is a typed component shape. Values match the canonical keys
 // in base.Component shape semantics.

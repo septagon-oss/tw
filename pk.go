@@ -1,6 +1,8 @@
 package tw
 
-// Implements: REQ-004. // Per: ADR-0004. // Discipline: C-14.
+// Implements: REQ-004.
+// Per: ADR-0004.
+// Discipline: C-14.
 
 // PlatformKitClass is a typed handle for application-specific or
 // custom CSS classes that live outside Tailwind's utility namespace.

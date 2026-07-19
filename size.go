@@ -1,6 +1,8 @@
 package tw
 
-// Implements: REQ-004. // Per: ADR-0004. // Discipline: C-14.
+// Implements: REQ-004.
+// Per: ADR-0004.
+// Discipline: C-14.
 
 // Size is a typed component size step. Values match the canonical keys
 // in ButtonTokens.Sizes, InputTokens.Sizes, and other SizeMap consumers.

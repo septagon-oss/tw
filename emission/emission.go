@@ -7,7 +7,9 @@
 // the design-system and downstream consumers.
 package emission
 
-// Implements: REQ-004. // Per: ADR-0004. // Discipline: C-14.
+// Implements: REQ-004.
+// Per: ADR-0004.
+// Discipline: C-14.
 
 import (
 	"strings"

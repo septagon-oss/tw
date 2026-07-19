@@ -1,6 +1,8 @@
 package tw
 
-// Implements: REQ-004. // Per: ADR-0004. // Discipline: C-14.
+// Implements: REQ-004.
+// Per: ADR-0004.
+// Discipline: C-14.
 
 // State is a typed CSS modifier state (hover, focus, disabled, etc.).
 // Used with ClassList.On() to wrap child classes in a Tailwind prefix

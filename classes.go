@@ -1,6 +1,8 @@
 package tw
 
-// Implements: REQ-004. // Per: ADR-0004. // Discipline: C-14.
+// Implements: REQ-011.
+// Per: ADR-0004.
+// Discipline: C-14.
 
 import "strings"
 
@@ -661,9 +663,17 @@ func (cl ClassList) Merge(other ClassList) ClassList {
 
 // Raw is the escape hatch. Pass pre-audited Tailwind classes straight
 // through. Use only for runtime-computed values (e.g., HTMX attributes)
-// or incremental migration; the the typed tables and All* enumerators linter watches this.
-func (cl ClassList) Raw(class string) ClassList {
-	return cl.append(strings.TrimSpace(class))
+// or incremental migration; the typed tables and All* enumerators linter watches this.
+func (cl ClassList) Raw(classes string) ClassList {
+	fields := strings.Fields(classes)
+	if len(fields) == 0 {
+		return cl
+	}
+	out := cl.clone(len(fields))
+	for _, class := range fields {
+		out.segments = append(out.segments, segment{kind: sgClass, class: class})
+	}
+	return out
 }
 
 // Len returns the number of segments currently in the builder.

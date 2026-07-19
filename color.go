@@ -1,6 +1,8 @@
 package tw
 
-// Implements: REQ-004. // Per: ADR-0004. // Discipline: C-14.
+// Implements: REQ-004.
+// Per: ADR-0004.
+// Discipline: C-14.
 
 // Color is a typed semantic color role. Values serialize to the
 // semantic token name (e.g., "surface-primary"), not a Tailwind class

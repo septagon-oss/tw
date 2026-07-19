@@ -1,6 +1,8 @@
 package tw_test
 
-// Implements: REQ-004. // Per: ADR-0004. // Discipline: C-14.
+// Validates: REQ-011.
+// Per: ADR-0004.
+// Discipline: C-14.
 
 import (
 	"fmt"
@@ -178,6 +180,16 @@ func TestRawEscapeHatch(t *testing.T) {
 	// Empty raw is a no-op.
 	if tw.New().Raw("   ").Compile() != "" {
 		t.Fatal("empty-ish Raw should be a no-op")
+	}
+}
+
+func TestRawMultipleClassesRespectPrefix(t *testing.T) {
+	got := tw.New().On(tw.StateHover, func(c tw.ClassList) tw.ClassList {
+		return c.Raw("opacity-80 scale-105")
+	}).Compile()
+	want := "hover:opacity-80 hover:scale-105"
+	if got != want {
+		t.Fatalf("got %q, want %q", got, want)
 	}
 }
 
