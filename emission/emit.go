@@ -102,6 +102,10 @@ func baseClasses() []string {
 		add(tw.New().BorderColor(c))
 		add(tw.New().RingColor(c))
 		add(tw.New().Accent(c))
+		add(tw.New().BorderTopColor(c))
+		add(tw.New().BorderBottomColor(c))
+		add(tw.New().BorderLeftColor(c))
+		add(tw.New().BorderRightColor(c))
 	}
 	for _, s := range tw.AllSpacings() {
 		add(tw.New().Padding(s))

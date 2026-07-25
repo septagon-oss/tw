@@ -56,6 +56,11 @@ func resolveColor(class string) ([]decl, bool) {
 	for _, f := range []struct{ prefix, prop string }{
 		{"bg-", "background-color"},
 		{"text-", "color"},
+		// Side border colors before the generic prefix: longest match wins.
+		{"border-t-", "border-top-color"},
+		{"border-b-", "border-bottom-color"},
+		{"border-l-", "border-left-color"},
+		{"border-r-", "border-right-color"},
 		{"border-", "border-color"},
 		{"ring-", "--pk-ring-color"},
 		{"accent-", "accent-color"},
