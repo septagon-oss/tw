@@ -4195,6 +4195,18 @@
   text-decoration-line: line-through;
 }
 
+.list-decimal {
+  list-style-type: decimal;
+}
+
+.list-disc {
+  list-style-type: disc;
+}
+
+.list-none {
+  list-style-type: none;
+}
+
 .lowercase {
   text-transform: lowercase;
 }

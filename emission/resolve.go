@@ -270,6 +270,12 @@ func resolveParametric(class string) ([]decl, bool) {
 			return []decl{{"transition-duration", s + "ms"}}, true
 		}
 	}
+	if s := strings.TrimPrefix(class, "list-"); s != class {
+		switch s {
+		case "none", "disc", "decimal":
+			return []decl{{"list-style-type", s}}, true
+		}
+	}
 	if s := strings.TrimPrefix(class, "cursor-"); s != class {
 		return []decl{{"cursor", s}}, true
 	}

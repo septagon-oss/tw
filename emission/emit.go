@@ -261,6 +261,11 @@ func baseClasses() []string {
 		add(tw.New().LineClamp(n))
 	}
 
+	// ListStyle's documented keyword universe.
+	for _, v := range []string{"none", "disc", "decimal"} {
+		add(tw.New().ListStyle(v))
+	}
+
 	// No-argument toggles.
 	add(tw.New().Truncate())
 	add(tw.New().SrOnly())
