@@ -115,6 +115,23 @@ func resolveSpacingFamily(class string) ([]decl, bool) {
 	neg := strings.HasPrefix(class, "-")
 	c := strings.TrimPrefix(class, "-")
 
+	// Fractional overlay anchors are intentionally separate from the spacing
+	// scale so utilities such as padding-1/2 cannot enter the closed universe.
+	for _, position := range []struct{ prefix, property string }{
+		{"top-", "top"},
+		{"right-", "right"},
+		{"bottom-", "bottom"},
+		{"left-", "left"},
+	} {
+		if strings.HasPrefix(c, position.prefix) && strings.TrimPrefix(c, position.prefix) == "1/2" {
+			value := "50%"
+			if neg {
+				value = "-50%"
+			}
+			return []decl{{position.property, value}}, true
+		}
+	}
+
 	// Longest matching prefix wins (gap-x- before gap-).
 	var prefixes []string
 	for p := range spacingFamilies {

@@ -152,6 +152,12 @@ func baseClasses() []string {
 		add(tw.New().TranslateX(v))
 		add(tw.New().TranslateY(v))
 	}
+	for _, v := range tw.AllPositionOffsets() {
+		add(tw.New().LeftOffset(v))
+		add(tw.New().RightOffset(v))
+		add(tw.New().TopOffset(v))
+		add(tw.New().BottomOffset(v))
+	}
 	for _, v := range tw.AllDisplays() {
 		add(tw.New().Display(v))
 	}

@@ -522,6 +522,22 @@ func (cl ClassList) RightRaw(v string) ClassList  { return cl.append(classRightR
 func (cl ClassList) TopRaw(v string) ClassList    { return cl.append(classTopRaw(v)) }
 func (cl ClassList) BottomRaw(v string) ClassList { return cl.append(classBottomRaw(v)) }
 
+// LeftOffset / RightOffset / TopOffset / BottomOffset apply one governed
+// fractional overlay position. Unlike the Raw forms, every accepted value is
+// part of emission's closed utility universe.
+func (cl ClassList) LeftOffset(v PositionOffset) ClassList {
+	return cl.append(classLeftRaw(string(v)))
+}
+func (cl ClassList) RightOffset(v PositionOffset) ClassList {
+	return cl.append(classRightRaw(string(v)))
+}
+func (cl ClassList) TopOffset(v PositionOffset) ClassList {
+	return cl.append(classTopRaw(string(v)))
+}
+func (cl ClassList) BottomOffset(v PositionOffset) ClassList {
+	return cl.append(classBottomRaw(string(v)))
+}
+
 // NegTop / NegRight / NegBottom / NegLeft apply a negative positional
 // offset on the Spacing scale (e.g., NegTop(tw.S1) emits "-top-1").
 // Used by badge and pill patterns that sit outside the parent's

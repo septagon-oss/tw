@@ -157,13 +157,24 @@ const (
 type Translate string
 
 const (
-	TranslateNone  Translate = "0"
-	TranslatePx    Translate = "px"
-	Translate0_5   Translate = "0.5"
-	Translate1     Translate = "1"
-	TranslateNeg05 Translate = "neg-0.5" // -translate-y-0.5
-	TranslateNeg1  Translate = "neg-1"
-	TranslateNeg2  Translate = "neg-2"
+	TranslateNone    Translate = "0"
+	TranslatePx      Translate = "px"
+	Translate0_5     Translate = "0.5"
+	TranslateHalf    Translate = "1/2"
+	Translate1       Translate = "1"
+	TranslateNeg05   Translate = "neg-0.5" // -translate-y-0.5
+	TranslateNegHalf Translate = "neg-1/2"
+	TranslateNeg1    Translate = "neg-1"
+	TranslateNeg2    Translate = "neg-2"
+)
+
+// PositionOffset is a non-spacing positional fraction used to anchor
+// overlays. It is separate from Spacing so values such as 1/2 cannot leak
+// into padding, gap, or size utilities.
+type PositionOffset string
+
+const (
+	PositionHalf PositionOffset = "1/2"
 )
 
 // AllBorderWidths returns every BorderWidth in stable order.
@@ -228,7 +239,12 @@ func AllOverflows() []Overflow {
 // AllTranslates returns every Translate in stable order.
 func AllTranslates() []Translate {
 	return []Translate{
-		TranslateNone, TranslatePx, Translate0_5, Translate1,
-		TranslateNeg05, TranslateNeg1, TranslateNeg2,
+		TranslateNone, TranslatePx, Translate0_5, TranslateHalf, Translate1,
+		TranslateNeg05, TranslateNegHalf, TranslateNeg1, TranslateNeg2,
 	}
+}
+
+// AllPositionOffsets returns every governed overlay-position fraction.
+func AllPositionOffsets() []PositionOffset {
+	return []PositionOffset{PositionHalf}
 }

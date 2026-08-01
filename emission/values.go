@@ -70,6 +70,8 @@ func translateCSS(suffix string) (string, bool) {
 		return "0px", true
 	case "0.5":
 		v = "0.125rem"
+	case "1/2":
+		v = "50%"
 	default:
 		var ok bool
 		if v, ok = spacingCSS(s); !ok {

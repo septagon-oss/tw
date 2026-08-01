@@ -116,6 +116,19 @@ func TestStatePrefix(t *testing.T) {
 	}
 }
 
+func TestFractionalTranslateAndPositionOffsets(t *testing.T) {
+	got := tw.New().
+		TranslateX(tw.TranslateNegHalf).
+		TranslateY(tw.TranslateHalf).
+		LeftOffset(tw.PositionHalf).
+		TopOffset(tw.PositionHalf).
+		Compile()
+	want := "-translate-x-1/2 translate-y-1/2 left-1/2 top-1/2"
+	if got != want {
+		t.Fatalf("got %q, want %q", got, want)
+	}
+}
+
 func TestFocusVisibleRing(t *testing.T) {
 	got := tw.New().
 		On(tw.StateFocusVisible, func(c tw.ClassList) tw.ClassList {
