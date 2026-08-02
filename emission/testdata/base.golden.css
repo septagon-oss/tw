@@ -2,7 +2,7 @@
   --pk-role-black: #000000;
   --pk-role-border-brand: var(--pk-color-accent-default);
   --pk-role-border-danger: var(--pk-color-status-danger);
-  --pk-role-border-info: var(--pk-color-focus);
+  --pk-role-border-info: var(--pk-color-status-info);
   --pk-role-border-primary: var(--pk-color-border-default);
   --pk-role-border-secondary: color-mix(in srgb, var(--pk-color-border-default) 60%, var(--pk-color-surface-primary));
   --pk-role-border-success: var(--pk-color-status-ok);
@@ -10,7 +10,7 @@
   --pk-role-fg-brand: var(--pk-color-accent-default);
   --pk-role-fg-danger: var(--pk-color-status-danger);
   --pk-role-fg-disabled: color-mix(in srgb, var(--pk-color-text-muted) 55%, var(--pk-color-surface-primary));
-  --pk-role-fg-info: var(--pk-color-focus);
+  --pk-role-fg-info: var(--pk-color-status-info);
   --pk-role-fg-link: var(--pk-color-accent-default);
   --pk-role-fg-link-hover: var(--pk-color-accent-hover);
   --pk-role-fg-muted: var(--pk-color-text-muted);
@@ -34,8 +34,8 @@
   --pk-role-surface-danger-soft: var(--pk-color-status-dangerbg);
   --pk-role-surface-disabled: var(--pk-color-surface-muted);
   --pk-role-surface-hover: color-mix(in srgb, var(--pk-color-text-primary) 4%, var(--pk-color-surface-primary));
-  --pk-role-surface-info: var(--pk-color-focus);
-  --pk-role-surface-info-soft: color-mix(in srgb, var(--pk-color-focus) 12%, var(--pk-color-surface-primary));
+  --pk-role-surface-info: var(--pk-color-status-info);
+  --pk-role-surface-info-soft: var(--pk-color-status-infobg);
   --pk-role-surface-inverse: var(--pk-color-sidebar-bg);
   --pk-role-surface-overlay: color-mix(in srgb, var(--pk-color-sidebar-bg) 55%, transparent);
   --pk-role-surface-primary: var(--pk-color-surface-primary);
@@ -3365,6 +3365,26 @@
   height: 24rem;
 }
 
+.h-\[100vh\] {
+  height: 100vh;
+}
+
+.h-\[25vh\] {
+  height: 25vh;
+}
+
+.h-\[50vh\] {
+  height: 50vh;
+}
+
+.h-\[75vh\] {
+  height: 75vh;
+}
+
+.h-\[85vh\] {
+  height: 85vh;
+}
+
 .h-auto {
   height: auto;
 }
@@ -4375,6 +4395,174 @@
 
 .m-px {
   margin: 1px;
+}
+
+.max-h-0 {
+  max-height: 0px;
+}
+
+.max-h-0\.5 {
+  max-height: 0.125rem;
+}
+
+.max-h-1 {
+  max-height: 0.25rem;
+}
+
+.max-h-1\.5 {
+  max-height: 0.375rem;
+}
+
+.max-h-10 {
+  max-height: 2.5rem;
+}
+
+.max-h-11 {
+  max-height: 2.75rem;
+}
+
+.max-h-12 {
+  max-height: 3rem;
+}
+
+.max-h-14 {
+  max-height: 3.5rem;
+}
+
+.max-h-16 {
+  max-height: 4rem;
+}
+
+.max-h-2 {
+  max-height: 0.5rem;
+}
+
+.max-h-2\.5 {
+  max-height: 0.625rem;
+}
+
+.max-h-20 {
+  max-height: 5rem;
+}
+
+.max-h-24 {
+  max-height: 6rem;
+}
+
+.max-h-28 {
+  max-height: 7rem;
+}
+
+.max-h-3 {
+  max-height: 0.75rem;
+}
+
+.max-h-3\.5 {
+  max-height: 0.875rem;
+}
+
+.max-h-32 {
+  max-height: 8rem;
+}
+
+.max-h-36 {
+  max-height: 9rem;
+}
+
+.max-h-4 {
+  max-height: 1rem;
+}
+
+.max-h-40 {
+  max-height: 10rem;
+}
+
+.max-h-44 {
+  max-height: 11rem;
+}
+
+.max-h-48 {
+  max-height: 12rem;
+}
+
+.max-h-5 {
+  max-height: 1.25rem;
+}
+
+.max-h-52 {
+  max-height: 13rem;
+}
+
+.max-h-56 {
+  max-height: 14rem;
+}
+
+.max-h-6 {
+  max-height: 1.5rem;
+}
+
+.max-h-60 {
+  max-height: 15rem;
+}
+
+.max-h-64 {
+  max-height: 16rem;
+}
+
+.max-h-7 {
+  max-height: 1.75rem;
+}
+
+.max-h-72 {
+  max-height: 18rem;
+}
+
+.max-h-8 {
+  max-height: 2rem;
+}
+
+.max-h-80 {
+  max-height: 20rem;
+}
+
+.max-h-9 {
+  max-height: 2.25rem;
+}
+
+.max-h-96 {
+  max-height: 24rem;
+}
+
+.max-h-\[100vh\] {
+  max-height: 100vh;
+}
+
+.max-h-\[25vh\] {
+  max-height: 25vh;
+}
+
+.max-h-\[50vh\] {
+  max-height: 50vh;
+}
+
+.max-h-\[75vh\] {
+  max-height: 75vh;
+}
+
+.max-h-\[85vh\] {
+  max-height: 85vh;
+}
+
+.max-h-auto {
+  max-height: auto;
+}
+
+.max-h-full {
+  max-height: 100%;
+}
+
+.max-h-px {
+  max-height: 1px;
 }
 
 .max-w-2xl {
@@ -7385,6 +7573,11 @@
 
 .ring-white {
   --pk-ring-color: var(--pk-role-white);
+}
+
+.rotate-180 {
+  --pk-rotate: 180deg;
+  transform: translate(var(--pk-translate-x, 0), var(--pk-translate-y, 0)) rotate(var(--pk-rotate, 0));
 }
 
 .rounded {

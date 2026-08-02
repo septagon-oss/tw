@@ -36,6 +36,12 @@ func TestBasicChaining(t *testing.T) {
 	}
 }
 
+func TestMaxHeightUsesGovernedSpacing(t *testing.T) {
+	if got, want := tw.New().MaxHeight(tw.S60).Compile(), "max-h-60"; got != want {
+		t.Fatalf("got %q, want %q", got, want)
+	}
+}
+
 func TestColorRoles(t *testing.T) {
 	cases := []struct {
 		name string
@@ -70,6 +76,7 @@ func TestSpacingUtilities(t *testing.T) {
 		{"gap-2", tw.New().Gap(tw.S2), "gap-2"},
 		{"w-full", tw.New().Width(tw.SFull), "w-full"},
 		{"min-h-11", tw.New().MinHeight(tw.S11), "min-h-11"},
+		{"max-h-85vh", tw.New().MaxHeightViewport(tw.VH85), "max-h-[85vh]"},
 	}
 	for _, c := range cases {
 		t.Run(c.name, func(t *testing.T) {

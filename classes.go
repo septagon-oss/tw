@@ -142,6 +142,19 @@ func (cl ClassList) Width(s Spacing) ClassList { return cl.append(classWidth(s))
 // Height sets height.
 func (cl ClassList) Height(s Spacing) ClassList { return cl.append(classHeight(s)) }
 
+// MaxHeight sets max-height from the governed spacing scale.
+func (cl ClassList) MaxHeight(s Spacing) ClassList { return cl.append(classMaxH(string(s))) }
+
+// HeightViewport sets a height from the governed viewport-relative scale.
+func (cl ClassList) HeightViewport(v ViewportHeight) ClassList {
+	return cl.append(classHeightViewport(v))
+}
+
+// MaxHeightViewport sets a max-height from the governed viewport-relative scale.
+func (cl ClassList) MaxHeightViewport(v ViewportHeight) ClassList {
+	return cl.append(classMaxHeightViewport(v))
+}
+
 // MinWidth sets min-width.
 func (cl ClassList) MinWidth(s Spacing) ClassList { return cl.append(classMinWidth(s)) }
 

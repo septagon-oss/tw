@@ -40,6 +40,9 @@ func resolveBase(class string) ([]decl, error) {
 	if d, ok := resolveColor(class); ok {
 		return d, nil
 	}
+	if d, ok := resolveViewportHeight(class); ok {
+		return d, nil
+	}
 	if d, ok := resolveSpacingFamily(class); ok {
 		return d, nil
 	}
@@ -47,6 +50,18 @@ func resolveBase(class string) ([]decl, error) {
 		return d, nil
 	}
 	return nil, fmt.Errorf("%w: %q", ErrUnknownClass, class)
+}
+
+func resolveViewportHeight(class string) ([]decl, bool) {
+	for _, value := range tw.AllViewportHeights() {
+		if class == "h-["+string(value)+"vh]" {
+			return []decl{{"height", string(value) + "vh"}}, true
+		}
+		if class == "max-h-["+string(value)+"vh]" {
+			return []decl{{"max-height", string(value) + "vh"}}, true
+		}
+	}
+	return nil, false
 }
 
 // resolveColor handles the four color families, including the /opacity form
@@ -106,7 +121,7 @@ var spacingFamilies = map[string][]string{
 	"top-": {"top"}, "bottom-": {"bottom"}, "left-": {"left"}, "right-": {"right"},
 	"inset-":   {"inset"},
 	"inset-x-": {"left", "right"}, "inset-y-": {"top", "bottom"},
-	"w-": {"width"}, "h-": {"height"},
+	"w-": {"width"}, "h-": {"height"}, "max-h-": {"max-height"},
 	"min-w-": {"min-width"}, "min-h-": {"min-height"},
 	"underline-offset-": {"text-underline-offset"},
 }
@@ -461,6 +476,8 @@ const transformValue = "translate(var(--pk-translate-x, 0), var(--pk-translate-y
 // fixedClasses covers every no-argument builder toggle and each enumeration
 // whose members map to fixed declarations.
 var fixedClasses = map[string][]decl{
+	"rotate-180": {{"--pk-rotate", "180deg"}, {"transform", transformValue}},
+
 	// Display (class name == value except the flow shorthands tw uses).
 	"block": {{"display", "block"}}, "inline": {{"display", "inline"}},
 	"inline-block": {{"display", "inline-block"}}, "flex": {{"display", "flex"}},

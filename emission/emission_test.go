@@ -90,6 +90,21 @@ func TestEscapeHatchesFailClosed(t *testing.T) {
 	}
 }
 
+func TestAccordionRotationStateIsEnumerable(t *testing.T) {
+	t.Parallel()
+
+	sheet, err := Rules("rotate-180")
+	if err != nil {
+		t.Fatalf("resolve controller-owned rotation state: %v", err)
+	}
+	css := sheet.RenderPretty()
+	for _, fragment := range []string{".rotate-180", "--pk-rotate: 180deg", "transform:"} {
+		if !strings.Contains(css, fragment) {
+			t.Errorf("rotation utility is missing %q: %s", fragment, css)
+		}
+	}
+}
+
 func TestPrefixedRules(t *testing.T) {
 	t.Parallel()
 	sheet, err := Rules(

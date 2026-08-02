@@ -309,6 +309,20 @@ func classHeight(s Spacing) string {
 	return "h-" + string(s)
 }
 
+func classHeightViewport(v ViewportHeight) string {
+	if v == "" {
+		return ""
+	}
+	return "h-[" + string(v) + "vh]"
+}
+
+func classMaxHeightViewport(v ViewportHeight) string {
+	if v == "" {
+		return ""
+	}
+	return "max-h-[" + string(v) + "vh]"
+}
+
 // classMinWidth maps Spacing → "min-w-*".
 func classMinWidth(s Spacing) string {
 	if s == "" {
