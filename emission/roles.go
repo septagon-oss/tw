@@ -48,8 +48,8 @@ func roleValues() map[tw.Color]string {
 		tw.SurfaceWarningSoft: tokenVar("status-warningbg"),
 		tw.SurfaceDanger:      tokenVar("status-danger"),
 		tw.SurfaceDangerSoft:  tokenVar("status-dangerbg"),
-		tw.SurfaceInfo:        focus,
-		tw.SurfaceInfoSoft:    mix(focus, "12", surfacePrimary),
+		tw.SurfaceInfo:        tokenVar("status-info"),
+		tw.SurfaceInfoSoft:    tokenVar("status-infobg"),
 		tw.SurfaceDisabled:    tokenVar("surface-muted"),
 		tw.SurfaceHover:       mix(textPrimary, "4", surfacePrimary),
 		tw.SurfaceActive:      mix(textPrimary, "8", surfacePrimary),
@@ -67,7 +67,7 @@ func roleValues() map[tw.Color]string {
 		tw.FgSuccess:     tokenVar("status-ok"),
 		tw.FgWarning:     tokenVar("status-warning"),
 		tw.FgDanger:      tokenVar("status-danger"),
-		tw.FgInfo:        focus,
+		tw.FgInfo:        tokenVar("status-info"),
 		tw.FgDisabled:    mix(textMuted, "55", surfacePrimary),
 		tw.FgOnSurface:   textPrimary,
 		tw.FgOnInverse:   tokenVar("sidebar-text"),
@@ -81,7 +81,7 @@ func roleValues() map[tw.Color]string {
 		tw.BorderSuccess:   tokenVar("status-ok"),
 		tw.BorderWarning:   tokenVar("status-warning"),
 		tw.BorderDanger:    tokenVar("status-danger"),
-		tw.BorderInfo:      focus,
+		tw.BorderInfo:      tokenVar("status-info"),
 
 		// Rings.
 		tw.RingBrand:  accent,

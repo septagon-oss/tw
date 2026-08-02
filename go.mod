@@ -10,6 +10,6 @@ require (
 )
 
 require (
-	github.com/tdewolff/minify/v2 v2.24.13 // indirect
-	github.com/tdewolff/parse/v2 v2.8.13 // indirect
+	github.com/tdewolff/minify/v2 v2.24.14 // indirect
+	github.com/tdewolff/parse/v2 v2.8.14 // indirect
 )

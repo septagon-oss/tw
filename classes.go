@@ -142,6 +142,19 @@ func (cl ClassList) Width(s Spacing) ClassList { return cl.append(classWidth(s))
 // Height sets height.
 func (cl ClassList) Height(s Spacing) ClassList { return cl.append(classHeight(s)) }
 
+// MaxHeight sets max-height from the governed spacing scale.
+func (cl ClassList) MaxHeight(s Spacing) ClassList { return cl.append(classMaxH(string(s))) }
+
+// HeightViewport sets a height from the governed viewport-relative scale.
+func (cl ClassList) HeightViewport(v ViewportHeight) ClassList {
+	return cl.append(classHeightViewport(v))
+}
+
+// MaxHeightViewport sets a max-height from the governed viewport-relative scale.
+func (cl ClassList) MaxHeightViewport(v ViewportHeight) ClassList {
+	return cl.append(classMaxHeightViewport(v))
+}
+
 // MinWidth sets min-width.
 func (cl ClassList) MinWidth(s Spacing) ClassList { return cl.append(classMinWidth(s)) }
 
@@ -521,6 +534,22 @@ func (cl ClassList) LeftRaw(v string) ClassList   { return cl.append(classLeftRa
 func (cl ClassList) RightRaw(v string) ClassList  { return cl.append(classRightRaw(v)) }
 func (cl ClassList) TopRaw(v string) ClassList    { return cl.append(classTopRaw(v)) }
 func (cl ClassList) BottomRaw(v string) ClassList { return cl.append(classBottomRaw(v)) }
+
+// LeftOffset / RightOffset / TopOffset / BottomOffset apply one governed
+// fractional overlay position. Unlike the Raw forms, every accepted value is
+// part of emission's closed utility universe.
+func (cl ClassList) LeftOffset(v PositionOffset) ClassList {
+	return cl.append(classLeftRaw(string(v)))
+}
+func (cl ClassList) RightOffset(v PositionOffset) ClassList {
+	return cl.append(classRightRaw(string(v)))
+}
+func (cl ClassList) TopOffset(v PositionOffset) ClassList {
+	return cl.append(classTopRaw(string(v)))
+}
+func (cl ClassList) BottomOffset(v PositionOffset) ClassList {
+	return cl.append(classBottomRaw(string(v)))
+}
 
 // NegTop / NegRight / NegBottom / NegLeft apply a negative positional
 // offset on the Spacing scale (e.g., NegTop(tw.S1) emits "-top-1").

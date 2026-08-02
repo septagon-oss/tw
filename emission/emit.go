@@ -138,6 +138,7 @@ func baseClasses() []string {
 		add(tw.New().InsetY(s))
 		add(tw.New().Width(s))
 		add(tw.New().Height(s))
+		add(tw.New().MaxHeight(s))
 		add(tw.New().MinWidth(s))
 		add(tw.New().MinHeight(s))
 		add(tw.New().DivideX(s))
@@ -148,9 +149,19 @@ func baseClasses() []string {
 		add(tw.New().TranslateXStep(s))
 		add(tw.New().TranslateYStep(s))
 	}
+	for _, v := range tw.AllViewportHeights() {
+		add(tw.New().HeightViewport(v))
+		add(tw.New().MaxHeightViewport(v))
+	}
 	for _, v := range tw.AllTranslates() {
 		add(tw.New().TranslateX(v))
 		add(tw.New().TranslateY(v))
+	}
+	for _, v := range tw.AllPositionOffsets() {
+		add(tw.New().LeftOffset(v))
+		add(tw.New().RightOffset(v))
+		add(tw.New().TopOffset(v))
+		add(tw.New().BottomOffset(v))
 	}
 	for _, v := range tw.AllDisplays() {
 		add(tw.New().Display(v))
@@ -295,6 +306,9 @@ func baseClasses() []string {
 	add(tw.New().Peer())
 	add(tw.New().Relative())
 	add(tw.New().Transform())
+	// Accordion/disclosure controllers toggle this shared state class at
+	// runtime, so it belongs to the closed enumerable utility universe.
+	add(tw.New().Rotate("180"))
 	add(tw.New().AnimateSpin())
 	add(tw.New().AnimatePulse())
 	add(tw.New().AppearanceNone())

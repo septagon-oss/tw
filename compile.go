@@ -309,6 +309,20 @@ func classHeight(s Spacing) string {
 	return "h-" + string(s)
 }
 
+func classHeightViewport(v ViewportHeight) string {
+	if v == "" {
+		return ""
+	}
+	return "h-[" + string(v) + "vh]"
+}
+
+func classMaxHeightViewport(v ViewportHeight) string {
+	if v == "" {
+		return ""
+	}
+	return "max-h-[" + string(v) + "vh]"
+}
+
 // classMinWidth maps Spacing → "min-w-*".
 func classMinWidth(s Spacing) string {
 	if s == "" {
@@ -601,6 +615,8 @@ func classTranslateY(t Translate) string {
 	switch t {
 	case TranslateNeg05:
 		return "-translate-y-0.5"
+	case TranslateNegHalf:
+		return "-translate-y-1/2"
 	case TranslateNeg1:
 		return "-translate-y-1"
 	case TranslateNeg2:
@@ -618,6 +634,8 @@ func classTranslateX(t Translate) string {
 	switch t {
 	case TranslateNeg05:
 		return "-translate-x-0.5"
+	case TranslateNegHalf:
+		return "-translate-x-1/2"
 	case TranslateNeg1:
 		return "-translate-x-1"
 	case TranslateNeg2:
