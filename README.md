@@ -1,3 +1,5 @@
+> **Archived on 2026-09-03.** This repository is read-only. Its code was folded into [PlatformKit v1](https://github.com/septagon-oss/platformkit) (`ui/`, `design/`, `kit/problem`), which is where it continues.
+
 # tw
 
 Typed builder for Tailwind utility class strings.
